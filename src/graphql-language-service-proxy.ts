@@ -43,9 +43,10 @@ export default class GraphQLLanguageServiceProxy
   }
 
   getProjectConfig(fileName: string): GraphQLProjectConfig {
-    let config = getGraphQLConfig();
-
     let currentDir = dirname(fileName);
+
+    let config = getGraphQLConfig(currentDir);
+
     this._logger(`fileName: ${fileName}`)
     this._logger(`currentDir: ${currentDir}`)
     while (!this.isRootDir(currentDir)) {
